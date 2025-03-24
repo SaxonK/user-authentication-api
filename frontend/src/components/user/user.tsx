@@ -50,7 +50,7 @@ function UserProfile() {
       const headers: Headers = new Headers();
       headers.set('Accept', 'application/json');
 
-      const request: Request = new Request('http://localhost/api/user', {
+      const request: Request = new Request('/api/user', {
         method: 'GET',
         headers: headers,
         credentials: "include"
@@ -103,7 +103,7 @@ function UserProfile() {
       const headers: Headers = new Headers();
       headers.set('Accept', 'application/json');
 
-      const request: Request = new Request('http://localhost/api/user/deactivate', {
+      const request: Request = new Request('/api/user/deactivate', {
         method: 'POST',
         headers: headers,
         credentials: "include"
@@ -127,7 +127,7 @@ function UserProfile() {
       const headers: Headers = new Headers();
       headers.set('Accept', 'application/json');
 
-      const request: Request = new Request('http://localhost/api/auth/logout', {
+      const request: Request = new Request('/api/auth/logout', {
         method: 'POST',
         headers: headers,
         credentials: "include"
@@ -173,7 +173,7 @@ function UserProfile() {
         profilePicture: formData["profile-picture"]
       };
 
-      const request: Request = new Request('http://localhost/api/user/update', {
+      const request: Request = new Request('/api/user/update', {
         method: 'PUT',
         headers: headers,
         credentials: "include",

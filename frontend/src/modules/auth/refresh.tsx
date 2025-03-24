@@ -9,7 +9,7 @@ export const getAccessToken = async (): Promise<ReturnResponse> => {
     headers.set('content-type', 'application/json');
     headers.set('Accept', 'application/json');
 
-    const request: Request = new Request('http://localhost/api/auth/refresh', {
+    const request: Request = new Request('/api/auth/refresh', {
       method: 'POST',
       headers: headers,
       credentials: 'include'

@@ -43,7 +43,7 @@ function SignUp() {
         "password": formData["new-password"]
       };
 
-      const request: Request = new Request('http://localhost/api/auth/register', {
+      const request: Request = new Request('/api/auth/register', {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(formattedData)

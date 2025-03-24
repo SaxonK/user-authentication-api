@@ -39,7 +39,7 @@ function Login() {
         "password": formData["password"]
       };
 
-      const request: Request = new Request('http://localhost/api/auth/login', {
+      const request: Request = new Request('/api/auth/login', {
         method: 'POST',
         headers: headers,
         body: JSON.stringify(formattedData)
