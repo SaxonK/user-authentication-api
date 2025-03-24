@@ -1,6 +1,6 @@
 import '@/assets/css/user.css';
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getAccessToken } from "@/modules/auth/refresh";
 import { useNavigate } from "react-router";
 import EditableUserDetails from '@/components/user/editableUserDetails';
@@ -26,9 +26,14 @@ export interface UserData {
   "profile-picture": string;
   "created-date": Date | null;
 };
+interface UserUpdateState {
+  success: boolean;
+  message: string;
+};
 
 function UserProfile() {
   const navigate = useNavigate();
+  const updateMessage = useRef<HTMLSpanElement>(null);
   const [userData, setUserData] = useState<UserData>({
     "first-name": '',
     "last-name": '',
@@ -40,6 +45,10 @@ function UserProfile() {
     "created-date": null
   });
   const [editable, setEditable] = useState<boolean>(false);
+  const [userUpdateState, setUpdateMessage] = useState<UserUpdateState>({
+    success: false,
+    message: ''
+  });
 
   useEffect(() => {
     intialiseUserProfile();
@@ -157,6 +166,26 @@ function UserProfile() {
     await toggleEditable();
   };
 
+  const updateMessageState = async (success: boolean, message: string): Promise<void> => {
+    setUpdateMessage({
+      success: success,
+      message: message
+    });
+    if (userUpdateState.success) {
+      updateMessage.current?.classList.remove('fail');
+      updateMessage.current?.classList.add('success');
+    } else {
+      updateMessage.current?.classList.remove('success');
+      updateMessage.current?.classList.add('fail');
+    }
+
+    updateMessage.current?.classList.add('visible');
+
+    setInterval(() => {
+      updateMessage.current?.classList.remove('visible');
+    }, 5000);
+  };
+
   const updateUserDetails = async (formData: Record<string, string>): Promise<void> => {
     try {
       const headers: Headers = new Headers();
@@ -184,12 +213,19 @@ function UserProfile() {
 
       if(response.ok) {
         const data: { message: string } = await response.json();
+        updateMessageState(response.ok, '✅ Changes Saved');
         console.log(data.message);
       } else {
         throw new Error('An error occured attempting to update user details.');
       }
     } catch (error) {
-      console.log(error);
+      if (error instanceof Error) {
+        updateMessageState(false, `❌ ${error.message}`);
+        console.error(error.message);
+      } else {
+        updateMessageState(false, '❌ Unable to save changes. An Unexpected error occured');
+        console.log(error);
+      }
     }
   };
 
@@ -203,13 +239,16 @@ function UserProfile() {
       }}
     />
   ) : (
-    <EditableUserDetails 
-      data={userData}
-      actions={{
-        back: backToProfile
-      }}
-      onSubmit={updateUserDetails}
-    />
+    <>
+      <EditableUserDetails 
+        data={userData}
+        actions={{
+          back: backToProfile
+        }}
+        onSubmit={updateUserDetails}
+      />
+      <span ref={updateMessage} className="update-message">{userUpdateState.message}</span>
+    </>
   );
 
   return (
