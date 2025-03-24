@@ -53,6 +53,9 @@ function UserProfile() {
   useEffect(() => {
     intialiseUserProfile();
   }, []);
+  useEffect(() => {
+    toggleUpdateMessage();
+  }, [userUpdateState.success]);
 
   const getUserDetails = async (): Promise<void> => {
     try {
@@ -166,11 +169,7 @@ function UserProfile() {
     await toggleEditable();
   };
 
-  const updateMessageState = async (success: boolean, message: string): Promise<void> => {
-    setUpdateMessage({
-      success: success,
-      message: message
-    });
+  const toggleUpdateMessage = (): void => {
     if (userUpdateState.success) {
       updateMessage.current?.classList.remove('fail');
       updateMessage.current?.classList.add('success');
@@ -213,17 +212,26 @@ function UserProfile() {
 
       if(response.ok) {
         const data: { message: string } = await response.json();
-        updateMessageState(response.ok, '✅ Changes Saved');
+        setUpdateMessage({
+          success: response.ok,
+          message: data.message
+        });
         console.log(data.message);
       } else {
         throw new Error('An error occured attempting to update user details.');
       }
     } catch (error) {
       if (error instanceof Error) {
-        updateMessageState(false, `❌ ${error.message}`);
+        setUpdateMessage({
+          success: false,
+          message: `❌ ${error.message}`
+        });
         console.error(error.message);
       } else {
-        updateMessageState(false, '❌ Unable to save changes. An Unexpected error occured');
+        setUpdateMessage({
+          success: false,
+          message: '❌ Unable to save changes. An Unexpected error occured'
+        });
         console.log(error);
       }
     }
