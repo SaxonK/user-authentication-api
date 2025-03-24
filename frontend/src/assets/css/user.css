@@ -1,0 +1,182 @@
+.user-profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  width: 500px;
+  align-items: center;
+  color: rgba(248, 248, 255, 1);
+  gap: 4rem;
+}
+.user-profile svg {
+  fill: rgba(248, 248, 255, 1);
+}
+.user-profile-header {
+  display: flex;
+  width: 100%;
+  margin-bottom: -3rem;
+  align-items: center;
+}
+.header-action-button {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: rgba(43, 42, 51, 0.5);
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(43, 42, 51, 1);
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+}
+.user-profile-header .left {
+  margin: 0 auto 0 0;
+}
+.user-profile-header .right {
+  margin: 0 0 0 auto;
+}
+.header-action-button::before {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  top: 0;
+  bottom: 0;
+  font-size: 14px;
+  line-height: unset;
+  margin: auto 0;
+  color: rgba(248, 248, 255, 1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 800ms ease-in-out;
+  box-sizing: border-box;
+  z-index: -10;
+}
+.header-action-button.left::before {
+  right: calc(0px - 85px);
+}
+.header-action-button.right::before {
+  left: calc(0px - 85px);
+}
+.header-action-button:hover {
+  filter: brightness(1.5);
+}
+.header-action-button:hover::before {
+  opacity: 1;
+  visibility: visible;
+  z-index: auto;
+}
+.header-action-button.left.back::before {
+  content: "Back to Profile";
+  right: calc(0px - 105px);
+}
+.header-action-button.edit::before {
+  content: "Edit Profile";
+}
+.header-action-button svg {
+  display: block;
+  width: 18px;
+  aspect-ratio: 1 / 1;
+}
+.user-profile-header .title h2 {
+  margin: 0;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-info .profile-image {
+  display: block;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  border-radius: 50%;
+  border-width: 4px;
+  border-style: solid;
+  border-color: rgba(246, 248, 250, 0.75);
+}
+.user-info .user-fullname {
+  margin: 0;
+}
+.user-info .user-email {
+  font-size: 12px;
+}
+.user-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.user-details .field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-details .field span {
+  display: block;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.user-details .field-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 12px 8px;
+  background-color: rgba(43, 42, 51, 1);
+  min-width: 50%;
+  border-radius: 0px 26px 26px 0px;
+}
+.user-details .field-label svg {
+  display: block;
+  line-height: normal;
+  width: 18px;
+  aspect-ratio: 1 / 1;
+}
+.user-actions {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+.user-profile .user-actions button {
+  width: 100%;
+  border: none;
+  transition: all 400ms ease-out;
+}
+.user-profile .user-actions button:not(:disabled):hover {
+  filter: brightness(1.2);
+}
+.user-profile .user-actions button#deactivate {
+  background-color: rgba(246, 248, 250, 1);
+  color: rgba(33, 53, 71, 1);
+}
+.user-profile .user-actions button#logout {
+  background-color: rgba(255, 23, 68, 1);
+  color: rgba(255, 255, 255, 0.871);
+}
+
+@media (prefers-color-scheme: light) {
+  .user-profile {
+    color: rgba(33, 53, 71, 1);
+  }
+  .header-action-button {
+    border-color: rgba(246, 248, 250, 1);
+    background-color: rgba(246, 248, 250, 0.5);
+  }
+  .header-action-button::before {
+    color:rgba(33, 53, 71, 1);
+  }
+  .header-action-button:hover {
+    filter: brightness(0.9);
+  }
+  .user-details .field-label {
+    background-color: rgba(246, 248, 250, 1);
+  }
+  .user-profile svg {
+    fill: rgba(33, 53, 71, 1);
+  }
+};

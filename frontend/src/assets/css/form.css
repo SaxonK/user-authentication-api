@@ -1,0 +1,189 @@
+form#customisable-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  width: 100%;
+}
+form#customisable-form .row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+form#customisable-form .password-wrapper {
+  position: relative;
+  display: block;
+}
+form#customisable-form .field-wrapper {
+  position: relative;
+  width: 100%;
+}
+form#customisable-form .field-wrapper label {
+  position: absolute;
+  height: fit-content;
+  font-size: 14px;
+  text-transform: capitalize;
+  top: 0;
+  bottom: 0;
+  left: 8px;
+  margin: auto;
+  transition: all 200ms ease-out;
+  cursor: text;
+  pointer-events: none;
+}
+form#customisable-form .field-wrapper:has(input:focus, input:not(:placeholder-shown)) label {
+  top: -38px; 
+  transform: scale(0.85);
+}
+form#customisable-form .field-wrapper:has(input:focus, input:not(:placeholder-shown)) label::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  padding: 0 7px;
+  top: 8px;
+  bottom: 0;
+  left: -7px;
+  margin: auto;
+  background-color: rgba(43, 42, 51, 1);
+  z-index: -1;
+}
+form#customisable-form .preview-field {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+form#customisable-form .preview-field .preview-image {
+  width: 50px;
+  height: 50px;
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid aliceblue;
+}
+form#customisable-form input {
+  width: 100%;
+  padding: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(61, 68, 77, 1);
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 400ms ease-in-out;
+}
+form#customisable-form input:user-invalid {
+  border-color: rgba(255, 0, 0, 1);
+}
+form#customisable-form .field-wrapper:has(input:user-invalid, input:placeholder-shown) label .required {
+  color: rgba(255, 0, 0, 1);
+}
+form#customisable-form .field-wrapper .required-field-message {
+  position: absolute;
+  width: 100%;
+  font-size: 10px;
+  color: rgb(255, 0, 0);
+  bottom: 0px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 400ms ease-out;
+  z-index: -1;
+}
+form#customisable-form .field-wrapper:has(input:user-invalid) .required-field-message {
+  bottom: -15px;
+  opacity: 1;
+  visibility: visible;
+}
+form#customisable-form .password-visibility-button {
+  position: absolute;
+  height: fit-content;
+  padding: 8px;
+  line-height: 0;
+  top: 0;
+  bottom: 0;
+  right: 8px;
+  margin: auto;
+  background-color: rgba(43, 42, 51, 1);
+  cursor: pointer;
+}
+form#customisable-form .password-matches {
+  position: absolute;
+  height: fit-content;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 0;
+  top: 0;
+  bottom: 0;
+  right: 8px;
+  margin: auto;
+  background-color: rgba(43, 42, 51, 1);
+  cursor: default;
+}
+form#customisable-form .password-visibility-button .password-visibility-icon {
+  width: 16px;
+  aspect-ratio: 1 / 1;
+  fill: rgba(248, 248, 255, 1);
+  transition: all 400ms ease-out;
+}
+form#customisable-form .password-visibility-button:hover .password-visibility-icon {
+  fill: rgba(248, 248, 255, 0.75);
+}
+.password-confirmation-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+form#customisable-form .password-validation {
+  font-size: 14px;
+}
+form#customisable-form .password-validation ul {
+  padding-left: 1.5rem;
+}
+form#customisable-form .password-validation li {
+  list-style-type: none;
+}
+form#customisable-form .password-validation li .is-valid {
+  margin-right: 5px;
+}
+form#customisable-form button:disabled {
+  color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(43, 42, 51, 1);
+  cursor: not-allowed;
+}
+form#customisable-form button {
+  background-color: rgba(25, 121, 53, 1);
+  color: rgb(255, 255, 255);
+  border: none;
+  transition: all 400ms ease-out;
+}
+form#customisable-form button:not(:disabled):hover {
+  filter: brightness(1.2);
+}
+
+@media (prefers-color-scheme: light) {
+  form#customisable-form .field-wrapper:has(input:focus, input:not(:placeholder-shown)) label::after {
+    background-color: rgba(246, 248, 250, 1);
+  }
+  form#customisable-form input {
+    background-color: rgba(246, 248, 250, 1);
+    border-color: rgba(209, 217, 224, 1);
+  }
+  form#customisable-form .password-visibility-button {
+    background-color: rgba(246, 248, 250, 1);
+  }
+  form#customisable-form .password-matches {
+    background-color: rgba(246, 248, 250, 1);
+  }
+  form#customisable-form .password-visibility-button .password-visibility-icon {
+    fill: rgba(43, 42, 51, 1);
+  }
+  form#customisable-form .password-visibility-button:hover .password-visibility-icon {
+    fill: rgba(43, 42, 51, 0.75);
+  }
+  form#customisable-form button:disabled {
+    color: rgba(33, 53, 71, 0.25);
+    background-color: rgba(246, 248, 250, 1);
+  }
+}

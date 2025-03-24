@@ -1,0 +1,25 @@
+.landing-page-forms {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 2rem auto;
+}
+.landing-page-forms .tabs {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.landing-page-forms .tabs .tab {
+  width: 100%;
+  padding: 5px;
+  margin: 0 1rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(25, 121, 53, 0);
+  transition: border-bottom 400ms ease-in-out;
+  cursor: pointer;
+}
+.landing-page-forms .tabs .tab.active {
+  font-weight: bold;
+  border-bottom: 2px solid rgba(25, 121, 53, 1);
+}
