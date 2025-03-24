@@ -173,7 +173,7 @@
   z-index: auto;
 }
 .user-profile .update-message.success {
-  color: rgba(25, 121, 53, 1);
+  color: rgba(87, 212, 141, 1);
 }
 .user-profile .update-message.fail {
   color: rgba(255, 23, 68, 1);
