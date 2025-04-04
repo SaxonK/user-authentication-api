@@ -6,7 +6,7 @@ The project is split into 3 parts:
 2. [frontend](./frontend) - A React front end to demonstrate how to use the API
 3. [nginx](./nginx) - Reverse proxy configuration for routing the API and front end
 ## What is the purpose of this project?
-Authenticating and managing a user account is central to almost all web application so I wanted to learn and understand how this is achieved from both the back end and front end perspective.
+Authenticating and managing a user account is central to almost all web application so I wanted to understand how this is achieved from both the back end and front end perspective.
 ### API
 I had 2 goals I wanted to achieve with the API:
 1. Use established authentication techniques - I achived this by implementing a refresh (30 day lifespan) and access token (10 minute lifespan) pattern where the refresh token is only used to issue new access tokens from the authentication endpoint. The access token is used to authenticate all endpoints that access user information.
