@@ -72,7 +72,7 @@ POST http://example.com/api/auth/login
 }
 ```
 ## Logout
-Sets last logout date to time of request. Last logout date is used to invalidate access and refresh tokens and as such prevents users from accessing resources until the user has been reissued a new refresh token.
+Sets last logout date to time of request. Last logout date is used to invalidate access and refresh tokens and as such prevents users from accessing resources until the user has been reissued a new refresh token. Also removes the authenticated users access and refresh token cookies.
 ### HTTP Request
 ```http
 POST http://example.com/api/auth/logout
