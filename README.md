@@ -1,5 +1,5 @@
 # [User Authentication API](https://user-authentication.saxonkeegan.com)
-This RESTful API manages user authentication and the retreival of authenticated user data. The project is built to be containerised with Docker and connected together using an NGINX reverse proxy.
+This RESTful API manages user authentication and the retrieval of authenticated user data. The project is built to be containerised with Docker and connected together using an NGINX reverse proxy.
 ## What does this project include?
 The project is split into 3 parts:
 1. [backend](./backend) - This folder includes the user authentication API
