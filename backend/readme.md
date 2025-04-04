@@ -127,3 +127,102 @@ Not required.
   "message": "Refresh token expired, please re-authenticate"
 }
 ```
+# User
+## User
+Get authenticated users record from the 'User' table.
+### HTTP Request
+```http
+GET http://example.com/api/user
+```
+
+### Query Parameters
+Not required.
+
+### Response - 200 Success 
+```json
+{
+  "user": {
+    "id": "123",
+    "firstName": "John",
+    "lastName": "Smith",
+    "email": "jsmith@example.com",
+    "company": null,
+    "country": null,
+    "phoneNumber": null,
+    "profilePicture": null,
+    "lastLogoutDateTime": null,
+    "isActive": true
+  }
+}
+```
+### Response - 404 Generic
+```json
+{
+  "message": "No logged in user."
+}
+```
+## Deactivate
+Sets the 'isActive' value on the 'User' table to false for the  authenticated user.
+### HTTP Request
+```http
+POST http://example.com/api/deactivate
+```
+
+### Query Parameters
+Not required.
+
+### Response - 200 Success 
+```json
+{
+  "message": "User account has been deactivated."
+}
+```
+### Response - 404 Generic
+```json
+{
+  "message": "No logged in user."
+}
+```
+### Response - 500 Unexpected Error
+```json
+{
+  "message": "An unexpected error occured."
+}
+```
+## Update
+Updates user records in the 'User' table for the authenticated user.
+### HTTP Request
+```http
+PUT http://example.com/api/update
+```
+
+### Query Parameters
+
+| Parameter | Type | Required | Description |
+| ----------- | ----------- | ----------- | ----------- |
+| `firstName` | string | true | The first name of the user |
+| `lastName` | string | true | The last name / surname of the user |
+| `email` | string | true | The email address for the user account. Must be unique and used to login to user account |
+| `company` | string | false | The company the user works for/associated with |
+| `country` | string | false | The users country |
+| `phoneNumber` | string | false | The users phone number |
+| `profilePicture` | string | false | An image url that is used for the users profile picture |
+
+### Response - 200 Success 
+```json
+{
+  "message": "User details have been updated."
+}
+```
+### Response - 404 Generic
+```json
+{
+  "message": "No logged in user."
+}
+```
+### Response - 500 Unexpected Error
+```json
+{
+  "message": "An unexpected error occured."
+}
+```
