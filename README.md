@@ -2,9 +2,9 @@
 This RESTful API manages user authentication and the retreival of authenticated user data. The project is built to be containerised with Docker and connected together using an NGINX reverse proxy.
 ## What does this project include?
 The project is split into 3 parts:
-1. [backend](/tree/main/backend) - This folder includes the user authentication API
-2. [frontend](/tree/main/frontend) - A React front end to demonstrate how to use the API
-3. [nginx](/tree/main/nginx) - Reverse proxy configuration for routing the API and front end
+1. [backend](./backend) - This folder includes the user authentication API
+2. [frontend](./frontend) - A React front end to demonstrate how to use the API
+3. [nginx](./nginx) - Reverse proxy configuration for routing the API and front end
 ## What was the purpose of this project?
 Authenticating and managing a user accounts is central to almost all web application so I wanted to learn and understand how this is achieved from both the back end and front end perspectives.
 ### API
