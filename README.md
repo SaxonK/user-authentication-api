@@ -5,7 +5,7 @@ The project is split into 3 parts:
 1. [backend](./backend) - This folder includes the user authentication API
 2. [frontend](./frontend) - A React front end to demonstrate how to use the API
 3. [nginx](./nginx) - Reverse proxy configuration for routing the API and front end
-## What was the purpose of this project?
+## What is the purpose of this project?
 Authenticating and managing a user accounts is central to almost all web application so I wanted to learn and understand how this is achieved from both the back end and front end perspectives.
 ### API
 I had 2 goals I wanted to achieve with the API:
