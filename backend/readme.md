@@ -79,7 +79,7 @@ POST http://example.com/api/auth/logout
 ```
 
 ### Query Parameters
-Not required
+Not required.
 
 ### Response - 200 Success 
 ```json
@@ -97,5 +97,33 @@ Not required
 ```json
 {
   "message": "No logged in user."
+}
+```
+## Refresh
+Reissue an access token by providing a valid refresh token.
+### HTTP Request
+```http
+POST http://example.com/api/auth/refresh
+```
+
+### Query Parameters
+Not required.
+
+### Response - 200 Success 
+```json
+{
+  "message": "New access token assigned"
+}
+```
+### Response - 400 Generic
+```json
+{
+  "message": "Unauthorised"
+}
+```
+### Response - 401 Expired Refresh Token
+```json
+{
+  "message": "Refresh token expired, please re-authenticate"
 }
 ```
