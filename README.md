@@ -9,15 +9,19 @@ The project is split into 3 parts:
 Authenticating and managing a user account is central to almost all web application so I wanted to understand how this is achieved from both the back end and front end perspective.
 ### API
 I had 2 goals I wanted to achieve with the API:
-1. Use established authentication techniques - I achived this by implementing a refresh (30 day lifespan) and access token (10 minute lifespan) pattern where the refresh token is only used to issue new access tokens from the authentication endpoint. The access token is used to authenticate all endpoints that access user information.
+1. Use established authentication techniques - I achieved this by implementing a refresh (30 day lifespan) and access token (10 minute lifespan) pattern. The refresh token is only used to issue new access tokens from the authentication endpoint. The access token is used to authenticate all endpoints that access the user resource.
 2. Design the API to be modular - I wanted to focus on a modular approach to the architecture so I built the API using a MVC inspired design pattern. Each resource is split as follows:
    - Controller: Defines the endpoint location and method type. Contains all logic for handling the request
    - Service: Contains all reusable business logic specific to each resource
    - Model: Defines data tables specific to the resource
-Although the API is built as a monilith, by making the API modular it makes it a simpler task of seperating each resource out into its own micro service.
+
+Although the API is built as a monilith, by making the API modular it makes it a simpler task of seperating each resource out into its own micro service should the need arise.
+
 You can find the details of the API endpoints in the [API directory](./backend).
+
 ### Front End
-I wanted to get familiar building the front end using the React framework so I added a demo application to show how the API can be used to register, maintain user login across sessions, and make changes to the logged in users data.
+My goal here was to get comfortable building a front end application using the React framework. The React app is a demonstration of how the API can be used to register, maintain user login across sessions, and make changes to the logged in users data.
+
 ## Project Setup
 ### Prerequisites
 - [Docker](https://www.docker.com/)
