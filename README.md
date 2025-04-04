@@ -15,7 +15,7 @@ I had 2 goals I wanted to achieve with the API:
    - Service: Contains all reusable business logic specific to each resource
    - Model: Defines data tables specific to the resource
 Although the API is built as a monilith, by making the API modular it makes it a simpler task of seperating each resource out into its own micro service.
-You can find the details of the API endpoints in the [API directory](/tree/main/backend).
+You can find the details of the API endpoints in the [API directory](./backend).
 ### Front End
 I wanted to get familiar building the front end using the React framework so I added a demo application to show how the API can be used to register, maintain user login across sessions, and make changes to the logged in users data.
 ## Project Setup
