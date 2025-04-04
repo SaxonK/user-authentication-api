@@ -18,3 +18,24 @@ Although the API is built as a monilith, by making the API modular it makes it a
 You can find the details of the API endpoints in the [API directory](/tree/main/backend).
 ### Front End
 I wanted to get familiar building the front end using the React framework so I added a demo application to show how the API can be used to register, maintain user login across sessions, and make changes to the logged in users data.
+## Project Setup
+### Prerequisites
+- [Docker](https://www.docker.com/)
+### Clone the repository
+```sh
+git clone https://github.com/SaxonK/user-authentication-api.git
+cd your-dir-name
+```
+### Create .env file
+Creates the .env file from provide example. Make sure you set the values for each variable
+```sh
+cp .env.example .env
+```
+### Build container in Docker
+```sh
+docker-compose up --build
+```
+### How to shutdown the container in Docker
+```sh
+docker-compose down
+```
